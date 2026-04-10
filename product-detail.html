@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>二手市集 | 商品詳情</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;500;700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <header class="site-header">
+    <div class="header-inner">
+      <a class="brand" href="index.html" aria-label="二手市集首頁">二手市集</a>
+      <button id="nav-toggle" class="nav-toggle" type="button" aria-expanded="false" aria-controls="primary-nav" aria-label="開啟導覽選單">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+      <nav id="primary-nav" class="primary-nav" aria-label="主要導覽">
+        <ul class="nav-list">
+          <li><a href="index.html">首頁</a></li>
+          <li><a href="publish.html">發布商品</a></li>
+          <li><a href="my-products.html">我的商品</a></li>
+          <li><a href="favorites.html">我的收藏</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main class="container">
+    <section class="detail-section" aria-labelledby="detail-title">
+      <div id="detail-feedback" class="list-feedback" hidden>
+        <p id="detail-feedback-text" class="list-feedback-text">載入中...</p>
+      </div>
+
+      <div id="detail-content" class="detail-content" hidden>
+        <div class="detail-image-wrap">
+          <img id="detail-image" class="detail-image" alt="商品圖片" />
+        </div>
+
+        <article class="detail-info" aria-live="polite">
+          <div class="detail-chip-row">
+            <span id="detail-category" class="category-chip category-other">其他</span>
+            <span id="detail-status" class="status-chip status-chip-available">可購買</span>
+          </div>
+          <h1 id="detail-title" class="detail-title">商品標題</h1>
+          <p id="detail-price" class="detail-price">NT$ 0</p>
+          <p id="detail-description" class="detail-description">商品描述</p>
+
+          <section class="detail-seller-block" aria-labelledby="seller-info-title">
+            <h2 id="seller-info-title">賣家資訊</h2>
+            <p><strong>暱稱：</strong><span id="detail-seller-nickname">-</span></p>
+            <p><strong>電話：</strong><span id="detail-seller-phone">-</span></p>
+            <p><strong>Email：</strong><span id="detail-seller-email">-</span></p>
+          </section>
+
+          <div class="detail-action-row">
+            <button id="contact-seller-btn" class="submit-btn" type="button">聯絡賣家</button>
+            <a class="back-list-btn" href="index.html">返回首頁</a>
+          </div>
+        </article>
+      </div>
+    </section>
+  </main>
+
+  <div id="contact-modal" class="contact-modal" hidden>
+    <div class="contact-dialog" role="dialog" aria-modal="true" aria-labelledby="contact-title">
+      <h2 id="contact-title">聯絡方式</h2>
+      <p class="contact-help">點擊以下資訊即可複製。</p>
+      <div class="contact-list">
+        <button id="copy-phone-btn" class="contact-item" type="button">電話：-</button>
+        <button id="copy-email-btn" class="contact-item" type="button">Email：-</button>
+      </div>
+      <p id="contact-copy-message" class="seller-form-message" aria-live="polite"></p>
+      <button id="close-contact-btn" class="search-btn" type="button">關閉</button>
+    </div>
+  </div>
+
+  <script src="product-detail.js"></script>
+</body>
+</html>

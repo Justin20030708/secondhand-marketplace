@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>二手市集 | 發布商品</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;500;700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <header class="site-header">
+    <div class="header-inner">
+      <a class="brand" href="index.html" aria-label="二手市集首頁">二手市集</a>
+      <button id="nav-toggle" class="nav-toggle" type="button" aria-expanded="false" aria-controls="primary-nav" aria-label="開啟導覽選單">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+      <nav id="primary-nav" class="primary-nav" aria-label="主要導覽">
+        <ul class="nav-list">
+          <li><a href="index.html">首頁</a></li>
+          <li><a class="is-current" href="publish.html">發布商品</a></li>
+          <li><a href="my-products.html">我的商品</a></li>
+          <li><a href="favorites.html">我的收藏</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main class="container">
+    <section class="publish-section" aria-labelledby="publish-title">
+      <h1 id="publish-title">發布新商品</h1>
+      <p class="publish-subtitle">請填寫下方資料，帶有 <span class="required-star">*</span> 的欄位為必填。</p>
+
+      <div class="publish-layout">
+        <form id="publish-form" class="publish-form" novalidate>
+          <div class="form-field" data-field="name">
+            <label for="product-name">商品名稱 <span class="required-star">*</span></label>
+            <div class="field-control" id="name-control">
+              <input id="product-name" name="name" type="text" required />
+              <span id="name-state" class="field-state" aria-hidden="true"></span>
+            </div>
+            <p class="field-error" id="name-error"></p>
+          </div>
+
+          <div class="form-field" data-field="description">
+            <label for="product-description">商品描述 <span class="required-star">*</span></label>
+            <div class="field-control" id="description-control">
+              <textarea id="product-description" name="description" rows="5" required></textarea>
+              <span id="description-state" class="field-state" aria-hidden="true"></span>
+            </div>
+            <p class="field-error" id="description-error"></p>
+          </div>
+
+          <div class="form-grid">
+            <div class="form-field" data-field="price">
+              <label for="product-price">價格 <span class="required-star">*</span></label>
+              <div class="field-control" id="price-control">
+                <input id="product-price" name="price" type="number" min="1" step="1" inputmode="numeric" required />
+                <span id="price-state" class="field-state" aria-hidden="true"></span>
+              </div>
+              <p class="field-error" id="price-error"></p>
+            </div>
+
+            <div class="form-field" data-field="category">
+              <label for="product-category">分類 <span class="required-star">*</span></label>
+              <div class="field-control" id="category-control">
+                <select id="product-category" name="category" required>
+                  <option value="">請選擇分類</option>
+                  <option value="電子產品">電子產品</option>
+                  <option value="書籍">書籍</option>
+                  <option value="家具">家具</option>
+                  <option value="服飾">服飾</option>
+                  <option value="其他">其他</option>
+                </select>
+                <span id="category-state" class="field-state" aria-hidden="true"></span>
+              </div>
+              <p class="field-error" id="category-error"></p>
+            </div>
+          </div>
+
+          <div class="form-field" data-field="image">
+            <label for="product-image">商品圖片</label>
+            <input id="product-image" name="image" type="file" accept="image/*" />
+            <p class="image-size" id="image-size">尚未選擇圖片</p>
+            <p class="field-error" id="image-error"></p>
+            <div id="image-preview-box" class="image-preview-box" role="button" tabindex="0" aria-label="點擊重新選擇圖片">
+              <div id="crop-stage" class="crop-stage" hidden>
+                <img id="crop-image" class="crop-image" alt="商品圖片裁切預覽" />
+                <div id="crop-box" class="crop-box" aria-label="裁切範圍" role="region"></div>
+              </div>
+              <p id="image-placeholder" class="image-placeholder">點擊這裡選擇圖片並預覽</p>
+            </div>
+            <label class="crop-size-row" for="crop-size" id="crop-size-row" hidden>
+              <span>裁切大小</span>
+              <input id="crop-size" type="range" min="35" max="100" value="70" />
+            </label>
+          </div>
+
+          <div class="form-field" data-field="seller">
+            <label for="seller-name">賣家暱稱</label>
+            <input id="seller-name" name="seller" type="text" />
+            <p class="field-error" id="seller-error"></p>
+          </div>
+
+          <p id="form-error" class="form-error"></p>
+
+          <button id="submit-btn" class="submit-btn" type="submit" disabled>發布商品</button>
+        </form>
+
+        <aside class="publish-preview" aria-label="商品預覽">
+          <h2>商品預覽</h2>
+          <article class="product-card preview-card" aria-label="商品預覽卡片">
+            <div class="image-wrap">
+              <img id="live-image" class="product-image" alt="商品預覽圖片" />
+              <div class="chip-row">
+                <span id="live-category" class="adaptive-chip category-chip category-other">其他</span>
+                <span class="adaptive-chip status-chip status-chip-available">可購買</span>
+              </div>
+            </div>
+            <div class="product-body">
+              <h3 id="live-name" class="product-name">商品名稱預覽</h3>
+              <p id="live-price" class="price">NT$ 0</p>
+            </div>
+          </article>
+        </aside>
+      </div>
+    </section>
+  </main>
+
+  <script src="publish.js"></script>
+</body>
+</html>

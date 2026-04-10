@@ -1,0 +1,12 @@
+services:
+  - type: web
+    name: secondhand-marketplace
+    runtime: node
+    plan: free
+    buildCommand: npm install
+    startCommand: npm start
+    envVars:
+      - key: NODE_ENV
+        value: production
+      # Optional: if you add a Render Disk mounted at /var/data,
+      # server.js will auto-use /var/data/secondhand-marketplace.sqlite.

@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>二手市集 | 商品列表</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;500;700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <header class="site-header">
+    <div class="header-inner">
+      <a class="brand" href="#" aria-label="二手市集首頁">二手市集</a>
+      <button id="nav-toggle" class="nav-toggle" type="button" aria-expanded="false" aria-controls="primary-nav" aria-label="開啟導覽選單">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+      <nav id="primary-nav" class="primary-nav" aria-label="主要導覽">
+        <ul class="nav-list">
+          <li><a class="is-current" href="index.html">首頁</a></li>
+          <li><a href="publish.html">發布商品</a></li>
+          <li><a href="my-products.html">我的商品</a></li>
+          <li><a href="favorites.html">我的收藏</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main class="container">
+    <section class="list-section" aria-labelledby="products-title">
+      <div class="title-row">
+        <div class="title-block">
+          <p class="section-kicker">Secondhand Marketplace</p>
+          <h1 id="products-title">精選商品</h1>
+        </div>
+        <p class="count-text">共 <span id="product-count">0</span> 件商品</p>
+      </div>
+
+      <div class="controls-row">
+        <div class="filter-switch" role="group" aria-label="商品分類篩選">
+          <button class="filter-btn is-active" type="button" data-category="全部" aria-pressed="true">全部</button>
+          <button class="filter-btn" type="button" data-category="電子產品" aria-pressed="false">電子產品</button>
+          <button class="filter-btn" type="button" data-category="書籍" aria-pressed="false">書籍</button>
+          <button class="filter-btn" type="button" data-category="家具" aria-pressed="false">家具</button>
+          <button class="filter-btn" type="button" data-category="服飾" aria-pressed="false">服飾</button>
+          <button class="filter-btn" type="button" data-category="其他" aria-pressed="false">其他</button>
+          <label class="sort-field" for="price-sort">
+            <select id="price-sort" class="sort-select" aria-label="商品價格排序">
+              <option value="default">默認排序</option>
+              <option value="price-desc">價格高到低</option>
+              <option value="price-asc">價格低到高</option>
+            </select>
+          </label>
+          <form id="search-form" class="search-form" role="search" aria-label="商品搜尋">
+            <input id="search-input" class="search-input" type="search" placeholder="搜尋商品..." aria-label="搜尋商品" />
+            <button class="search-btn" type="submit">搜尋</button>
+          </form>
+        </div>
+
+        <div class="layout-switch" role="group" aria-label="商品列表排版切換">
+          <button class="layout-btn" type="button" data-layout="1" aria-pressed="false">大圖 (1行)</button>
+          <button class="layout-btn" type="button" data-layout="2" aria-pressed="false">並排 (2行)</button>
+          <button class="layout-btn is-active" type="button" data-layout="4" aria-pressed="true">密集 (4行)</button>
+        </div>
+      </div>
+
+      <div id="list-feedback" class="list-feedback" role="status" aria-live="polite" hidden>
+        <p id="list-feedback-text" class="list-feedback-text">載入中...</p>
+        <button id="retry-load-btn" class="retry-btn" type="button" hidden>重試</button>
+      </div>
+      <p id="empty-state" class="empty-state" hidden>沒有符合的商品</p>
+      <div id="product-grid" class="product-grid" aria-live="polite"></div>
+    </section>
+  </main>
+
+  <div id="soccer-rain-layer" class="soccer-rain-layer" aria-hidden="true"></div>
+  <button id="soccer-rain-toggle" class="soccer-rain-toggle" type="button" aria-pressed="true" aria-label="關閉足球雨特效" title="足球雨開關">
+    <span class="soccer-rain-toggle-icon" aria-hidden="true">⚽</span>
+  </button>
+
+  <script src="script.js"></script>
+</body>
+</html>

@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>二手市集 | 我的商品</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;500;700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <header class="site-header">
+    <div class="header-inner">
+      <a class="brand" href="index.html" aria-label="二手市集首頁">二手市集</a>
+      <button id="nav-toggle" class="nav-toggle" type="button" aria-expanded="false" aria-controls="primary-nav" aria-label="開啟導覽選單">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+      <nav id="primary-nav" class="primary-nav" aria-label="主要導覽">
+        <ul class="nav-list">
+          <li><a href="index.html">首頁</a></li>
+          <li><a href="publish.html">發布商品</a></li>
+          <li><a class="is-current" href="my-products.html">我的商品</a></li>
+          <li><a href="favorites.html">我的收藏</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main class="container">
+    <section class="list-section my-products-section" aria-labelledby="my-products-title">
+      <div class="title-row">
+        <div class="title-block">
+          <p class="section-kicker">Seller Center</p>
+          <h1 id="my-products-title">我發布的商品</h1>
+        </div>
+      </div>
+
+      <section class="seller-panel" aria-labelledby="seller-panel-title">
+        <h2 id="seller-panel-title">賣家資訊</h2>
+        <p id="seller-panel-hint" class="seller-panel-hint">請設定你的賣家資訊。</p>
+
+        <form id="seller-profile-form" class="seller-profile-form" novalidate>
+          <div class="seller-form-grid">
+            <label class="seller-form-field" for="seller-nickname">
+              <span>賣家暱稱</span>
+              <input id="seller-nickname" type="text" required />
+            </label>
+
+            <label class="seller-form-field" for="seller-phone">
+              <span>賣家電話</span>
+              <input id="seller-phone" type="tel" placeholder="選填" />
+            </label>
+
+            <label class="seller-form-field" for="seller-email">
+              <span>賣家 Email</span>
+              <input id="seller-email" type="email" placeholder="選填" />
+            </label>
+          </div>
+
+          <div class="seller-actions-row">
+            <button id="save-seller-btn" class="submit-btn" type="submit">儲存賣家資訊</button>
+            <p id="seller-form-message" class="seller-form-message" aria-live="polite"></p>
+          </div>
+        </form>
+
+        <div class="seller-info-card" aria-live="polite">
+          <p><strong>目前暱稱：</strong><span id="current-nickname">未設定</span></p>
+          <p><strong>電話：</strong><span id="current-phone">-</span></p>
+          <p><strong>Email：</strong><span id="current-email">-</span></p>
+        </div>
+      </section>
+
+      <div id="my-products-feedback" class="list-feedback" hidden>
+        <p id="my-products-feedback-text" class="list-feedback-text">載入中...</p>
+      </div>
+
+      <p id="my-products-empty" class="empty-state" hidden>
+        你還沒有發布任何商品
+        <a class="goto-publish-btn" href="publish.html">去發布</a>
+      </p>
+
+      <div id="my-products-grid" class="product-grid layout-4" aria-live="polite"></div>
+    </section>
+  </main>
+
+  <script src="my-products.js"></script>
+</body>
+</html>
